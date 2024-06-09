@@ -2,8 +2,18 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
+// Define the type for a news article
+interface NewsArticle {
+  title: string;
+  date: string;
+  author: string;
+  category: string;
+  content: string;
+  image: string;
+}
+
 export default function Team() {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState<NewsArticle[]>([]);
 
   useEffect(() => {
     // Fetch news data from the API endpoint
@@ -22,7 +32,7 @@ export default function Team() {
   }, []);
 
   return (
-    <div className='text-gray-800 w-[375px] h-[1461px] md:w-[768px] md:h-[1039px] lg:w-full lg:h-[1500px] flex items-center justify-center flex-col relative md:pb-16 pb-10'>
+    <div className='text-gray-800 w-[375px] h-[1461px] md:w-[768px] md:h-[1039px] lg:w-full lg:h-[1550px] flex items-center justify-center flex-col relative md:pb-16 pb-10'>
       <h1 className='text-[26px] font-bold lg:text-[30px]'>News</h1>
       <p className='text-gray-500 text-[12px] lg:text-[18px] md:text-[16px] lg:mt-2 lg:mx-60 md:px-20 text-center px-4'>
         We aim to stop public funds siphoning off and we have a plan that will help. We are working at the national and EU levels to advance.
@@ -48,7 +58,7 @@ export default function Team() {
               </div>
               <div className="group rounded-lg px-5 py-2 flex gap-4 items-center z-20">
                 <div>
-                  <a href={article.link} target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#1d6ea2]">
+                  <a href="#" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-[#1d6ea2]">
                     Learn more {' '}
                     <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-non ml-1">
                       -&gt;
